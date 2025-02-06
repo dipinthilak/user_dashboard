@@ -25,7 +25,9 @@ export const LoginForm = () => {
         description: "Logged in successfully",
       });
       router.push('/dashboard');
-    } catch (error) {
+    } 
+    
+    catch (error) {
       toast({
         title: "Error",
         description: `Invalid credentials ${error}`,
