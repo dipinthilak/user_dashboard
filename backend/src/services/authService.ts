@@ -7,20 +7,18 @@ import { eq } from "drizzle-orm";
 
 export class AuthService {
 
-
-    
   static async signUp(email: string, password: string) {
     const hashedPassword = await bcrypt.hash(password, 10);
-    await db
+    const user=await db
       .insert(userSchema)
       .values({ email: email, password: hashedPassword });
 
       await db.insert(wpSchema).values({
         email: email, 
-        widgetstate: { w1: true, w2: true, w3: true }, // Ensure default is set
+        widgetstate: { w1: true, w2: true, w3: true }, 
       });
 
-    return { message: "User registered successfully" };
+    return { message: "User registered successfully",user:user};
   }
 
 
@@ -36,13 +34,13 @@ export class AuthService {
 
       console.log(user,"user");
       console.log(user[0].password,"user -password");
-      const data=user[0] ;
+      const userdata=user[0] ;
       
       
     if (!user[0] || !(await bcrypt.compare(password, user[0].password))) {
 
       throw new Error("Invalid credentials");
     }
-    return {data};
+    return {message:"user signin succesfully",user:userdata};
   }
 }

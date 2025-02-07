@@ -1,10 +1,11 @@
 import { DashboardLayout } from "@/components/dashboard/DashboardLayout";
-import ProtectedRoute from "@/context/ProtectedRoute";
+import AuthGuard from "@/context/AuthGuard";
+
 
 export default function Dashboard() {
   return (
-    <ProtectedRoute>
+    <AuthGuard>
       <DashboardLayout />
-    </ProtectedRoute>
+    </AuthGuard>
   );
 }

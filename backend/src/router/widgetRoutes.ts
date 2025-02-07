@@ -1,6 +1,6 @@
 import express from "express";
 import { WidgetService } from "../services/widgetService";
-import { authenticateToken } from "../middlewares/authMiddleware";
+import { authenticateToken } from "../middlewares/_authMiddleware";
 
 const router = express.Router();
 

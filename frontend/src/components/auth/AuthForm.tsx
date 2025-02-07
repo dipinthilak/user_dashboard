@@ -6,7 +6,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardHeader, CardContent } from "@/components/ui/card";
 import { toast } from "react-toastify";
-// import { useAuth } from "@/context/AuthContext";
+import { useDispatch } from "react-redux";
+import { loginSuccess } from "@/store/userSlice";
 
 
 interface AuthFormProps {
@@ -19,9 +20,7 @@ const AuthForm: React.FC<AuthFormProps> = ({ isSignIn, toggleForm }) => {
   const [password, setPassword] = useState<string>("");
   const [confirmPassword, setConfirmPassword] = useState<string>("");
   const router = useRouter();
-
-// const { login } = useAuth();
-
+  const dispatch = useDispatch();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -48,12 +47,12 @@ const AuthForm: React.FC<AuthFormProps> = ({ isSignIn, toggleForm }) => {
         toast.error("Unsuccessful!" )
         throw new Error(data.message || "Something went wrong");
       } else {
-        localStorage.setItem("email",email );
+        dispatch(loginSuccess(email)); 
         toast.success(" successful!", {
           onClose: () => router.push("/dashboard"),
         });
       }
-      localStorage.setItem("email",email );
+      dispatch(loginSuccess(email)); 
       toast.success(isSignIn ? "Logged in" : "Account created", {});
       if (isSignIn) router.push("/dashboard");
 
