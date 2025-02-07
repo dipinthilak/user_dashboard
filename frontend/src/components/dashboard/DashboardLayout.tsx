@@ -5,9 +5,9 @@ import { useRouter } from 'next/navigation';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuSeparator } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
 import { Settings, LayoutDashboard } from 'lucide-react';
-import { StatsWidget } from '@/components/dashboard/widgets/StatsWidget';
-import { ChartWidget } from '@/components/dashboard/widgets/ChartWidget';
-import { ActivityWidget } from '@/components/dashboard/widgets/ActivityWidget';
+import { StatsWidget } from './widgets/StatsWidget';
+import { ChartWidget } from './widgets/ChartWidget';
+import { ActivityWidget } from './widgets/ActivityWidget';
 
 const WIDGETS = {
   stats: { id: 'stats', label: 'Statistics', component: StatsWidget },

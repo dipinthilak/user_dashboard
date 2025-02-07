@@ -1,14 +1,49 @@
 {
-  "name": "y",
+  "name": "backend",
   "version": "1.0.0",
-  "description": "backend of user dashboard app built with express clean architecture",
-  "main": "index.js",
+  "description": "Backend of user dashboard app built with Express Clean Architecture",
+  "main": "dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "ts-node-dev --respawn src/index.ts",
+    "build": "tsc",
+    "prestart": "npm run build",
+    "start": "node dist/index.js",
+    "migrate": "ts-node src/migrate.ts"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.21.2"
-  }
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "drizzle-orm": "^0.39.2",
+    "express": "^4.21.2",
+    "express-session": "^1.18.1",
+    "inversify": "^6.2.2",
+    "jsonwebtoken": "^9.0.2",
+    "morgan": "^1.10.0",
+    "my-fullstack-app": "file:..",
+    "pg": "^8.13.1",
+    "pg-promise": "^11.10.2",
+    "postgres": "^3.4.5",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/cookie-parser": "^1.4.8",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "@types/express-session": "^1.18.1",
+    "@types/jsonwebtoken": "^9.0.8",
+    "@types/morgan": "^1.9.9",
+    "@types/node": "^22.13.1",
+    "@types/pg": "^8.11.11",
+    "dotenv": "^16.4.7",
+    "drizzle-kit": "^0.30.4",
+    "nodemon": "^3.1.9",
+    "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.7.3"
+  },
+  "keywords": []
 }
