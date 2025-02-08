@@ -55,3 +55,9 @@ yarn-error.log*
 .vscode/
 .DS_Store
 Thumbs.db
+
+
+#env
+
+/frontend/.env
+/backend/.env

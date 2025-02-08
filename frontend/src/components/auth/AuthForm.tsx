@@ -32,8 +32,8 @@ const AuthForm: React.FC<AuthFormProps> = ({ isSignIn, toggleForm }) => {
 
     try {
       const url = isSignIn
-        ? "http://localhost:3003/auth/signin"
-        : "http://localhost:3003/auth/signup";
+        ? `${process.env}auth/signin`
+        : `${process.env}auth/signup`;
 
       const response = await fetch(url, {
         method: "POST",

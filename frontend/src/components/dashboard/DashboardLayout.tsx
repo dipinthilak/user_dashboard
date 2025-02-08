@@ -44,7 +44,7 @@ export const DashboardLayout = () => {
 
   const fetchPreferences = async () => {
     try {
-      const response = await axios.get("http://localhost:3003/widgets/", {
+      const response = await axios.get(`${process.env}widgets/`, {
         params: { email: email }
       })
       const preferences: [string] = response.data;
@@ -75,7 +75,7 @@ export const DashboardLayout = () => {
       const selectedWidgetIds = [...visibleWidgets];
     
       try {
-        const response = await axios.post("http://localhost:3003/widgets/", {
+        const response = await axios.post(`${process.env}widgets/`, {
           email,
           state: selectedWidgetIds, 
         });
