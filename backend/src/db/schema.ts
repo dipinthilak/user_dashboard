@@ -13,5 +13,5 @@ export const userSchema=pgTable("users",{
 
 export const wpSchema=pgTable("widgets",{
     email: varchar("email").notNull().primaryKey(),
-    widgetstate: json("widgetstate").notNull().default({ w1: true,w2:true ,w3:true}),
+    widgetstate: json("widgetstate").notNull().default(['engage', 'stats', 'activity', 'chart', 'sales', 'growth', 'perform']),
 })

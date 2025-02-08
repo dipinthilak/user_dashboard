@@ -1,14 +1,20 @@
-import express from "express";
+import express, { Request, Response } from "express";
 import { WidgetService } from "../services/widgetService";
-import { authenticateToken } from "../middlewares/_authMiddleware";
 
 const router = express.Router();
 
-router.get("/", authenticateToken, async (req, res) => {
+router.post("/", async (req, res) => {
   try {
-    const state = await WidgetService.getWidgetState(res.locals.email);
-    res.json(state);
-  } catch (err: unknown) {
+    const email = req.body.email as string;
+    const state = req.body.state as any[];
+
+    console.log(email,state,"email and state");
+    
+    await WidgetService.updateWidgetState(email, state);
+    res.json({ message: "Widget state updated" });
+  } 
+  catch (err: unknown) {
+    console.error("Error updating widget state:", err);
     if (err instanceof Error) {
       res.status(400).json({ error: err.message });
     } else {
@@ -17,14 +23,13 @@ router.get("/", authenticateToken, async (req, res) => {
   }
 });
 
-router.put("/", authenticateToken, async (req, res) => {
+router.get("/", async (req, res) => {
   try {
-    const response = await WidgetService.updateWidgetState(
-      res.locals.email,
-      req.body.state
-    );
-    res.json(response);
+    const email = req.query.email as string;
+    const state = await WidgetService.getWidgetState(email);
+    res.json(state);
   } catch (err: unknown) {
+    console.error("Error fetching widget state:", err);
     if (err instanceof Error) {
       res.status(400).json({ error: err.message });
     } else {

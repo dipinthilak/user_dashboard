@@ -10,7 +10,7 @@ const HeroContent: React.FC<HeroContentProps> = ({ isSignIn }) => {
       {isSignIn ? (
         <>
           <LaptopIcon className="w-24 h-24 text-purple-600" />
-          <h2 className="text-3xl font-bold text-gray-800">Dashboard Widgets Haven</h2>
+          <h2 className="text-3xl font-bold text-gray-800">Dashboard Widgets</h2>
           <p className="text-gray-600 max-w-md">
             Access your personalized dashboard and manage your widgets with ease.
           </p>

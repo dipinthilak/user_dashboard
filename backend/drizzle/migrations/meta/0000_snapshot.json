@@ -1,5 +1,5 @@
 {
-  "id": "e5014dc9-5133-4153-a4de-50df2bec53af",
+  "id": "14411608-de7b-4ab3-a96c-f983b9c3a32e",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -8,8 +8,8 @@
       "name": "users",
       "schema": "",
       "columns": {
-        "username": {
-          "name": "username",
+        "email": {
+          "name": "email",
           "type": "varchar",
           "primaryKey": true,
           "notNull": true
@@ -33,46 +33,18 @@
       "name": "widgets",
       "schema": "",
       "columns": {
-        "username": {
-          "name": "username",
+        "email": {
+          "name": "email",
           "type": "varchar",
           "primaryKey": true,
           "notNull": true
         },
-        "wp1": {
-          "name": "wp1",
-          "type": "boolean",
+        "widgetstate": {
+          "name": "widgetstate",
+          "type": "json",
           "primaryKey": false,
           "notNull": true,
-          "default": false
-        },
-        "wp2": {
-          "name": "wp2",
-          "type": "boolean",
-          "primaryKey": false,
-          "notNull": true,
-          "default": false
-        },
-        "wp3": {
-          "name": "wp3",
-          "type": "boolean",
-          "primaryKey": false,
-          "notNull": true,
-          "default": false
-        },
-        "wp4": {
-          "name": "wp4",
-          "type": "boolean",
-          "primaryKey": false,
-          "notNull": true,
-          "default": false
-        },
-        "wp5": {
-          "name": "wp5",
-          "type": "boolean",
-          "primaryKey": false,
-          "notNull": true,
-          "default": false
+          "default": "'[\"engage\",\"stats\",\"activity\",\"chart\",\"sales\",\"growth\",\"perform\"]'::json"
         }
       },
       "indexes": {},

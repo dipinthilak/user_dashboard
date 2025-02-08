@@ -15,7 +15,7 @@ export class AuthService {
 
       await db.insert(wpSchema).values({
         email: email, 
-        widgetstate: { w1: true, w2: true, w3: true }, 
+        widgetstate: ['engage', 'stats', 'activity', 'chart', 'sales', 'growth', 'perform'], 
       });
 
     return { message: "User registered successfully",user:user};
